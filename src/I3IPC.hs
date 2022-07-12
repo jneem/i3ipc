@@ -68,7 +68,7 @@ import           Control.Monad.Catch                 ( MonadThrow
                                                      )
 import           Control.Monad.IO.Class
 import           Data.Maybe                          ( isJust )
-import           Data.Semigroup                      ( (<>) )
+import           Data.Semigroup                      ( )
 import           System.Environment                  ( lookupEnv )
 import           System.Exit                         ( ExitCode(..) )
 import           System.Process.Typed                ( proc

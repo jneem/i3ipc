@@ -72,8 +72,8 @@ decodeBarIds = eitherDecode
 
 -- | Success Reply
 -- used for Sync, Subscribe, Command, Tick
-data Success = Success
-    { success :: !Bool
+newtype Success = Success
+    { success :: Bool
     }
     deriving (Eq, Show, Generic, FromJSON)
 
@@ -82,7 +82,7 @@ instance ToJSON Success where
 
 -- | Workspaces Reply
 -- The reply consists of a serialized list of workspaces. 
-data WorkspaceReply = WorkspaceReply !(Vector Workspace)
+newtype WorkspaceReply = WorkspaceReply (Vector Workspace)
     deriving (Eq, Generic, Show)
 
 instance ToJSON WorkspaceReply where
@@ -111,7 +111,7 @@ instance FromJSON Workspace where
 
 -- | Outputs Reply
 -- The reply consists of a serialized list of outputs. 
-data OutputsReply = OutputsReply !(Vector Output)
+newtype OutputsReply = OutputsReply (Vector Output)
     deriving (Eq, Generic, Show)
 
 instance ToJSON OutputsReply where
@@ -362,7 +362,7 @@ instance FromJSON NodeLayout where
 
 -- | BarConfig Reply
 -- This can be used by third-party workspace bars (especially i3bar, but others are free to implement compatible alternatives) to get the bar block configuration from i3.
-data BarIds = BarIds !(Vector Text)
+newtype BarIds = BarIds (Vector Text)
     deriving (Eq, Generic, Show)
 
 instance ToJSON BarIds where
@@ -536,7 +536,7 @@ instance FromJSON VersionReply where
 
 -- | BindingModes Reply
 -- The reply consists of an array of all currently configured binding modes.
-data BindingModesReply = BindingModesReply !(Vector Text)
+newtype BindingModesReply = BindingModesReply (Vector Text)
     deriving (Eq, Generic, Show)
 
 instance ToJSON BindingModesReply where
@@ -547,8 +547,8 @@ instance FromJSON BindingModesReply where
 
 -- | Config Reply
 -- The config reply is a map which currently only contains the "config" member, which is a string containing the config file as loaded by i3 most recently.
-data ConfigReply = ConfigReply
-    { c_config :: !Text
+newtype ConfigReply = ConfigReply
+    { c_config :: Text
     }
     deriving (Eq, Generic, Show)
 
